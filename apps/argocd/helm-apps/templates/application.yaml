@@ -18,6 +18,10 @@ spec:
     targetRevision: {{ .targetRevision }}
     helm:
       releaseName: {{ .name }}
+      {{- if .valueFiles }}
+      valueFiles:
+      {{ toYaml .valueFiles}}
+      {{- end }}
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

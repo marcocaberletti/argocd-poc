@@ -8,4 +8,6 @@ applications:
     namespace: develop-01
     repoURL: registry-1.docker.io/bitnamicharts
     chart: nginx
-    targetRevision: 15.9.0
+    targetRevision: 21.1.23
+    valueFiles:
+    - $values/apps/develop-01/nginx/values.yml
