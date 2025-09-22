@@ -13,6 +13,7 @@ spec:
     server: {{ $config.spec.destination.server | quote }}
   project: default
   source:
+    chart: {{ .chart }}
     repoURL: {{ .repoURL }}
     targetRevision: {{ .targetRevision }}
     helm:
