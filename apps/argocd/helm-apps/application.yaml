@@ -9,7 +9,6 @@ spec:
   sources:
     - repoURL: https://github.com/marcocaberletti/argocd-poc.git
       targetRevision: main
-      path: helm-values
       ref: values
     - repoURL: https://github.com/marcocaberletti/argocd-poc.git
       targetRevision: main
