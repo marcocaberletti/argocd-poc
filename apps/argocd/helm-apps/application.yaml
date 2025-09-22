@@ -2,14 +2,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-apps
+  name: root-helm-apps
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/marcocaberletti/argocd-poc.git
     targetRevision: main
-    path: appsets
+    path: apps/argocd/helm-apps
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
