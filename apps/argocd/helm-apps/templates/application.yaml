@@ -12,16 +12,19 @@ spec:
     namespace: {{ .namespace | default .name | quote }}
     server: {{ $config.spec.destination.server | quote }}
   project: default
-  source:
-    chart: {{ .chart }}
-    repoURL: {{ .repoURL }}
-    targetRevision: {{ .targetRevision }}
-    helm:
-      releaseName: {{ .name }}
-      {{- if .valueFiles }}
-      valueFiles:
-      {{ toYaml .valueFiles}}
-      {{- end }}
+  sources:
+    - repoURL: https://github.com/marcocaberletti/argocd-poc.git
+      targetRevision: main
+      ref: values
+    - chart: {{ .chart }}
+      repoURL: {{ .repoURL }}
+      targetRevision: {{ .targetRevision }}
+      helm:
+        releaseName: {{ .name }}
+        {{- if .valueFiles }}
+        valueFiles:
+        {{ toYaml .valueFiles}}
+        {{- end }}
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

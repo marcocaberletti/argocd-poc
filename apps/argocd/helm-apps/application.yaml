@@ -9,9 +9,6 @@ spec:
   sources:
     - repoURL: https://github.com/marcocaberletti/argocd-poc.git
       targetRevision: main
-      ref: values
-    - repoURL: https://github.com/marcocaberletti/argocd-poc.git
-      targetRevision: main
       path: apps/argocd/helm-apps
   destination:
     server: https://kubernetes.default.svc
