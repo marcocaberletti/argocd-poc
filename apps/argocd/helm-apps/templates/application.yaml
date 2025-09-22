@@ -13,9 +13,6 @@ spec:
     server: {{ $config.spec.destination.server | quote }}
   project: default
   sources:
-    - repoURL: https://github.com/marcocaberletti/argocd-poc.git
-      targetRevision: main
-      ref: values
     - chart: {{ .chart }}
       repoURL: {{ .repoURL }}
       targetRevision: {{ .targetRevision }}
@@ -25,6 +22,9 @@ spec:
         valueFiles:
         {{ toYaml .valueFiles}}
         {{- end }}
+    - repoURL: https://github.com/marcocaberletti/argocd-poc.git
+      targetRevision: main
+      ref: values
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
